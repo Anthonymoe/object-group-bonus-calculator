@@ -43,9 +43,9 @@ Write a declared function that takes in one **Employee** object (as an argument 
 * The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
 * The `totalBonus` should be the employee's total bonus rounded to the nearest dollar.
 
-### Individual Bonus calculation
+### Individual Bonus calculaoftion
 - Those who have a rating of a 2 or below should not receive a bonus.
-- Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
+- Those who have a rating a 3 should receive a base bonus of 4% of their base annual income.
 - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
 - Those who have a rating of a 5 should receive a base bonus of 10% of their base annual income.
 - If their employee number is 4 digits long, this means they have been with the company for longer than 15 years,
