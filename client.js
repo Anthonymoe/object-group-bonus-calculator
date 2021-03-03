@@ -33,8 +33,6 @@ const employees = [
 
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
-let employeeBonus
-
 
 function currentEmployees( array ) {
   for (i=0; i < array.length; i++) {
@@ -44,36 +42,46 @@ function currentEmployees( array ) {
 
 currentEmployees( employees );//TEST should log all employees in array individually
 
-// let employeeBonus = {
-//   name: employeeName,
-//   bonusPercentage: bonusPercentage,
-//   totalCompensation: totalCompensation,
-//   totalBonus: totalBonus
-// }//end employeeBonus object
-
-console.log( 'Test' );
- 
 //function to determine bonus calculations
-function bonusCalculation( array ) {
-  for (i=0; i < array.length; i++) {
-  //if rating of 2 or below
-  if (employees[i].reviewRating <= 2) {
-    console.log(employees[i]);
-  }//end of review rating 2 or less
-  else if (employees[i].reviewRating === 3) {
 
-  }//end of review rating 3  
-  else if (employees[i].reviewRating === 4) {
-    
-  }//end of review rating 4
-  else if (employees[i].reviewRating === 5) {
 
-  }
-  
-  }//end of for 
-}//end of employeeBonus
+function bonusCalc( employee ) {
+  let bonusP = 0; 
+  if ( employee.annualSalary > 65000 ) {
+    bonusP -= .01;
+  }//end over 65000
+  if ( employee.reviewRating <= 2 ){
+    bonusP += 0; 
+  }//end of employee rating 2
+  if ( employee.reviewRating === 3 ){
+    bonusP += .04;
+  }// end of employee rating 3 
+  if ( employee.reviewRating === 4 ){
+    bonusP += .06;
+  }// end of employee rating 4
+  if ( employee.reviewRating === 5 ){
+    bonusP += .10;
+  }//end of bonus percent calculation 
+  if (employee.employeeNumber.length === 4 ) {
+    bonusP += .05;
+  }// end employee ID length
+  if (bonusP > .13) {
+    bonusP = .13;
+  } // end bonus 13%
+  if (bonusP < 0) {
+    bonusP = 0;
+  } // end bonus 0%
+  let newList = {
+    name: employee.name,
+    bonusPercent: bonusP,
+    totalCompensation: employee.annualSalary + bonusP,
+    totalBonus: Math.round(employee.annualSalary * bonusP)
+  }//end of object 
+  console.log( newList ); 
+}// end of bonusCalc
 
-bonusCalculation( employees );
+bonusCalc( employees[1] );
+
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
 // This problem is massive! Break the problem down. Use the debugger.
@@ -84,13 +92,3 @@ bonusCalculation( employees );
 
 console.log( employees );
 
-// function x( array ) {
-//   for ( let i; i < array.length; i++)
-//   if ( array[i].reviewRating === 3 && array[i].annualSalary < 65000) {
-//     let bonus = array[i].annualSalary * 4%;//Declare at beginning of function
-//     let totalIncome = array[i].annualSalary + bonus;
-//     if ( totalIncome < 65000 ){
-//       employees.totalCompensation.push( totalIncome );
-//     }
-//   }
-// }
