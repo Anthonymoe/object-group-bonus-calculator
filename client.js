@@ -1,3 +1,4 @@
+
 const employees = [
   {
     name: 'Atticus',
@@ -43,7 +44,7 @@ function currentEmployees( array ) {
 currentEmployees( employees );//TEST should log all employees in array individually
 
 //function to determine bonus calculations
-
+let bonusList = [];
 
 function bonusCalc( employee ) {
   let bonusP = 0; 
@@ -53,13 +54,13 @@ function bonusCalc( employee ) {
   if ( employee.reviewRating <= 2 ){
     bonusP += 0; 
   }//end of employee rating 2
-  if ( employee.reviewRating === 3 ){
+  else if ( employee.reviewRating === 3 ){
     bonusP += .04;
   }// end of employee rating 3 
-  if ( employee.reviewRating === 4 ){
+  else if ( employee.reviewRating === 4 ){
     bonusP += .06;
   }// end of employee rating 4
-  if ( employee.reviewRating === 5 ){
+  else if ( employee.reviewRating === 5 ){
     bonusP += .10;
   }//end of bonus percent calculation 
   if (employee.employeeNumber.length === 4 ) {
@@ -79,13 +80,29 @@ function bonusCalc( employee ) {
     totalBonus: Math.round(employee.annualSalary * bonusP)
   }//end of object 
   console.log( newList ); 
+  bonusList.push ( newList );
+  
 }// end of bonusCalc
+
 
 bonusCalc( employees[0] );
 bonusCalc( employees[1] );
 bonusCalc( employees[2] );
 bonusCalc( employees[3] );
 bonusCalc( employees[4] );
+
+console.log( bonusList );
+
+
+// function displayEmployees() {
+//   let el = $('#employeeList');
+//   for (i=0; i < bonusList.length; i++) {
+//   el.append(`<li> + ${bonusList[i]} + </li>`);
+//    }
+// }
+
+// displayEmployees(bonusList);
+
 
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
