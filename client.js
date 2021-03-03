@@ -71,16 +71,21 @@ function bonusCalc( employee ) {
   if (bonusP < 0) {
     bonusP = 0;
   } // end bonus 0%
+  let bonus = bonusP * employee.annualSalary;
   let newList = {
     name: employee.name,
     bonusPercent: bonusP,
-    totalCompensation: employee.annualSalary + bonusP,
+    totalCompensation: Number(employee.annualSalary) + bonus,
     totalBonus: Math.round(employee.annualSalary * bonusP)
   }//end of object 
   console.log( newList ); 
 }// end of bonusCalc
 
+bonusCalc( employees[0] );
 bonusCalc( employees[1] );
+bonusCalc( employees[2] );
+bonusCalc( employees[3] );
+bonusCalc( employees[4] );
 
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
